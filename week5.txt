@@ -1,0 +1,51 @@
+Week5
+Function Definition - การนิยามฟังก์ชัน
+รูปแบบ 
+    type name (parameter) <- ไม่ต้องมี ;
+    {
+        คำสั่ง
+
+    }
+
+การใช้ return
+รูปแบบ return (expression) ;
+เป็นการส่งค่ากลับไปยังฟังก์ชั่น โดยจะสามารถส่งกลับได้เพียง 1 ค่าเท่านั้น
+และในหนึ่งฟังก์ชั่นสามารถมีหลายคำสั่ง return ได้
+
+Function Prototypes
+รูปแบบของฟังก์ชัน prototype
+    return-value-type function-name (parameter-list);
+มีลักษณะเหมือนกับ function header ของ function definition
+
+Standard Library Functions and Math Library Functions
+=> ฟังก์ชัน printf, scanf และ getchar เป็นตัวอย่างของฟังก์ชันที่อยู่ใน standard library functions
+=> ฟังก์ชัน sqrt, exp และ log เป็นตัวอย่างของฟังก์ชันที่อยู่ใน math library functions
+หากเราต้องการใช้ฟังก์ชันใน math library ต้องใส่คำสั่ง #include <math.h> ด้วย
+ตัวอย่างฟังชั่น math
+sin(), cos(), sqrt(), log(), pow(),
+ exp(), floor(), ceil(), fmod()
+
+ตัวอย่างโค้ด การแปลงเลขฐานสิบเป็นฐานสอง
+#include <stdio.h>
+#include <stdlib.h>
+int bit(int a)
+{
+   if (a < 2) 
+   {
+      return printf("%d",a); 
+   }
+   return bit(a/2),printf("%d",a%2); 
+}
+
+void main()
+{
+   char b[5] ;
+   int c ;
+   fgets(b,5,stdin);
+   c = atoi(b);
+   bit(c);
+
+}
+
+
+
