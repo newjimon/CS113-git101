@@ -1,0 +1,25 @@
+Week7
+พอนย์เตอร์ (pointer) คือตัวแปรที่เก็บค่าของที่อยู่ของข้อมูลของตัวแปร 
+การใช้พอนย์เตอร์จะทำให้เราสามารถเข้าถึงข้อมูลได้โดยตรงโดยใช้ที่อยู่ของหน่วยความจำได้
+
+Address-of operator (&)
+Dereference operator (*)
+Declaration operator (*)
+
+ตัวอย่าง
+int A = 8;
+int *p = &A; // ประกาศตัวแปรพอนย์เตอร์
+printf("%d", *p); // เข้าถึงข้อมูลของตัวแปรพอนย์เตอร์
+
+ตัวอย่างการใช้โค้ดระหว่าง Pointer กับ String
+#include<stdio.h>
+void main()
+{
+    char item[25] ="Computer Programming";
+    char *a1=&item[0], *a2;
+    printf("%s\n",a1);
+    a2 =&item[5];
+    printf("%s\n",a2);
+    a2 =&item[8];
+    printf("%s\n",a2);
+}
