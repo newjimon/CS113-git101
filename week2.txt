@@ -1,0 +1,38 @@
+Week2
+==========================
+    //Week2
+    //Variables
+    char Sting = "Message";
+    int num = 1234;
+    float dot = 1234.56;
+
+    ขนาดของตัวแปรแต่ละชนิด
+    int main()
+    { char c;
+    int i;
+    float f;
+    double d;
+    printf("char = %d\n", sizeof(c));
+    printf("int = %d\n", sizeof(i));
+    printf("float = %d\n", sizeof(f));
+    printf("double = %d\n", sizeof(d));
+    }
+    
+    if else
+    รูปแบบ
+    if(เงื่อนไข){
+        คำสั่งเมื่อเข้าเงื่อนไข
+    }
+
+    else if(เงื่อนไข){
+        คำสั่งเมื่อเข้าเงื่อนไข
+    }
+
+    #include <math.h> เรียกใช้ฟังชั่นคณิตศาสตร์
+    #define M_PI 3.14159265358979323846 กำหนดค่าพาย
+    
+    //printf 
+    
+   การแสดงข้อความ printf("ข้อความ %(ชนิดตัวแปร),ตัวแปร");
+    
+    ===========================
