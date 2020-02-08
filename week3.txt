@@ -1,0 +1,70 @@
+ Week3
+    
+    การใช้ if else เพื่อใช้แยกข้อมูลที่รับเข้ามาไปในกรณีต่างๆที่กำหนดไว้
+    
+    รูปแบบ
+
+    if(เงื่อนไข){
+        คำสั่ง ; 
+    }
+
+    else if (เงื่อนไข){
+        คำสั่ง ; 
+    }
+
+    เมื่อไม่ตรงกับเงื่อนไขที่กำหนดไว้สามารถใช้ else เพื่อประมวลผลที่ไม่ตรงกับกรณีอื่นได้
+    รูปแบบ
+
+    else{
+        คำสั่ง
+    }
+
+    ตัวอย่างโค้ด
+
+    void main()
+{
+    char a[1000],b[1000],c[1000];
+    int aa,bb,cc;
+    
+    printf("Enter length of side A: ");
+    fgets(a,1000,stdin);
+    printf("Enter length of side B: ");
+    fgets(b,1000,stdin);
+    printf("Enter length of side C: ");
+    fgets(c,1000,stdin);
+    
+    aa = atoi(a);
+    bb = atoi(b);
+    cc = atoi(c);
+    
+    if((aa+bb<=cc || bb+cc<=aa || aa+cc <= bb) && (aa!=0 || bb !=0 || cc!=0)){
+        printf("Triangle type is invalid.");
+    }else if (aa==bb && bb==cc && aa==cc){
+        printf("Triangle type is equilateral.");
+    }else if(aa==bb || bb==cc || aa==cc){
+        printf("Triangle type is isosceles.");
+    }else if(aa!=bb && bb!=cc && aa!=cc){
+        printf("Triangle type is scalene.");
+    }
+    
+        
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
