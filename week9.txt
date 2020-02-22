@@ -1,0 +1,149 @@
+การใช้คำสั่งต่างๆใน github
+
+Branch
+
+git branch : ใช้สำหรับการดูว่าตอนนี้มี branch อะไรบ้าง
+
+git branch (name) : สร้าง branch ใหม่
+
+git checkout -b (ชื่อ branch) : สลับไป branch ที่ต้องการ
+
+git merge (ชื่อ branch) : รวมไฟล์ของ branch ให้ไปอยู่ใน branchที่ต้องการ
+
+โดยต้องมาอยู่ใน branch master ก่อน จึงใช้คำสั่ง merge ได้
+
+=========================================
+
+การ merge แบบไม่มี conflict
+
+git clone (ลิ้งใน GitHub) : ดึงไฟล์ใน GitHub มาใช้ต่อ
+
+git log --all --decorate --oneline --graph : ดู checkpoint ทั้งหมด
+
+git push origin (ชื่อ branch) : ส่งไฟล์ขึ้น GitHub
+
+
+
+เพิ่มไฟล์ a.txt ใน branch ที่ต้องการ และเพิ่มไฟล์ b.txt ใน branch master
+
+	git checkout branchที่สร้างใหม่ เพื่อสลับ branch
+
+	git add a.txt
+
+	git commit -m “ข้อความ”
+
+	git checkout master     		
+
+	git add b.txt
+
+	git commit -m “ข้อความ”
+
+ดู Checkpoint ทั้งหมด
+
+	git log --all --decorate --oneline --graph
+
+    จะมี 2 branch คือ master และ branch ที่เราสร้าง และ orgin/master ยังอยู่ที่เก่า
+
+push master ขึ้น github  ดู Checkpoint ทั้งหมด 
+
+	git checkout master
+
+	git log --all --decorate --oneline --graph => ใช้เพื่อดู checkpoint
+
+	git push origin master
+
+	git log --all --decorate --oneline --graph
+
+push (ชื่อ branch) ขึ้น github ดู Checkpoint ทั้งหมด สังเกตสิ่งที่เปลี่ยนแปลง
+
+	git checkout feature
+
+	git log --all --decorate --oneline --graph
+
+	git push origin feature
+
+ 	git log --all --decorate --oneline --graph
+
+
+
+merge โดยให้ งานใน feature ไปรวมกันใน master
+
+     เปลี่ยนไปที่ Branch ปลายทางก่อน (master)
+
+	git checkout master
+
+     รวม Branch (merge) (branchที่เราสร้าง) ให้ไปอยู่ใน master
+
+	git merge (ชื่อ branch)
+
+
+
+เมื่อไม่มี conflict จะทำให้ git สร้าง commit ของการ merge นั้นไปเลย 
+
+แก้โดยใส่ commit message ด้วย vi ถ้าใช้ default merge commit message ให้กด ESC แล้วพิมพ์ :wq! แล้วกด Enter
+
+
+
+เมื่อ merge แล้ว จะเห็นว่าจะมี a.txt และ b.txt อยู่ใน Branch master
+
+ดูเส้นของการรวม Branch
+
+	git log --all --decorate --oneline --graph
+
+push master ขึ้น github เป็นการเสร็จสิ้นการ merge
+
+	git push origin master
+
+===========================================
+
+การ merge แบบมี conflict
+
+สร้าง Branch a และสลับไป Branch นั้นเลย ด้วยคำสั่ง
+
+	git checkout -b a
+
+แก้ไฟล์ b.txt ใน branch a และ master ในบรรทัดเดียวกัน ให้มีข้อความต่างกัน
+
+	git checkout a
+
+	แก้ไขไฟล์ b.txt ให้มีข้อความเพิ่มขึ้นมา
+
+	git add b.txt
+
+	git commit -m "update b.txt first line in branch a”
+
+	git log --all --decorate --oneline --graph
+
+	git checkout master
+
+	แก้ไขไฟล์ b.txt ให้มีข้อความต่างจากบรรทัดแรก
+
+	git add b.txt
+
+	git commit -m "update b.txt first line in branch master"
+
+	git log --all --decorate --oneline --graph
+
+merge branch a เข้าไปใน branch master (ไม่ต้อง push ก็ merge ได้)
+
+	git checkout master
+
+	git merge a
+
+เมื่อแก้ไข conflict เสร็จแล้ว ให้ commit การ merge นั้น
+
+	git add b.txt
+
+	git status
+
+	git commit -m "merge branch ‘a’ and resolve conflict"
+
+	git log --all --decorate --oneline --graph
+
+push ขึ้น github
+
+	git push origin master
+
+	git log --all --decorate --oneline --graph
+
+=============================================
